@@ -7,14 +7,18 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -46,8 +50,18 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun ArtGalleryApp() {
+
+
     val artObjectsList = DataProvider.createListOfArtObjects()
     val numberOfPictures = artObjectsList.size
+
+    val onPreviousButtonClick: () -> Unit = {
+
+    }
+
+    val onNextButtonClick: () -> Unit = {
+
+    }
 
     val artObject = artObjectsList[0]
 
@@ -63,7 +77,7 @@ fun ArtGalleryApp() {
             author = artObject.authorId,
             year = artObject.year
         )
-//        DisplayController()
+        DisplayController(onPreviousButtonClick, onNextButtonClick)
     }
 }
 
@@ -122,5 +136,36 @@ fun ArtworkDescription(imageDescription: Int, author: Int, year: Int) {
             modifier = Modifier
                 .padding(start = 8.dp)
         )
+    }
+}
+
+@Composable
+fun DisplayController(
+    onPreviousButtonClick: () -> Unit,
+    onNextButtonClick: () -> Unit
+) {
+    Row(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(start = 16.dp, end = 16.dp, bottom = 32.dp, top = 16.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Button(
+            onClick = onPreviousButtonClick,
+            modifier = Modifier.weight(1f)
+        ) {
+            Text(
+                text = stringResource(R.string.previous_button)
+            )
+        }
+        Spacer(modifier = Modifier.weight(0.5f))
+        Button(
+            onClick = onNextButtonClick,
+            modifier = Modifier.weight(1f)
+        ) {
+            Text(
+                text = stringResource(R.string.next_button)
+            )
+        }
     }
 }
