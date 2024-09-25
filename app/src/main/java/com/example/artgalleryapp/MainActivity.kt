@@ -18,6 +18,10 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -50,20 +54,28 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun ArtGalleryApp() {
-
+    var index by remember { mutableIntStateOf(0) }
 
     val artObjectsList = DataProvider.createListOfArtObjects()
     val numberOfPictures = artObjectsList.size
 
     val onPreviousButtonClick: () -> Unit = {
-
+        if (index == 0) {
+            index = numberOfPictures - 1
+        } else {
+            index--
+        }
     }
 
     val onNextButtonClick: () -> Unit = {
-
+        if (index == numberOfPictures - 1) {
+            index = 0
+        } else {
+            index++
+        }
     }
 
-    val artObject = artObjectsList[0]
+    val artObject = artObjectsList[index]
 
     Column(
         modifier = Modifier
