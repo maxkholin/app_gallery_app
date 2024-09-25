@@ -3,7 +3,6 @@ package com.example.artgalleryapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -43,9 +42,8 @@ import com.example.artgalleryapp.ui.theme.ArtGalleryAppTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
-            ArtGalleryAppTheme(darkTheme = false) {
+            ArtGalleryAppTheme {
                 ArtGalleryApp()
             }
         }
@@ -108,14 +106,17 @@ fun AppName() {
         ),
         modifier = Modifier
             .fillMaxWidth()
-            .height(96.dp)
-            .padding(top = 32.dp)
+            .height(72.dp)
+            .padding(top = 12.dp)
     )
 }
 
 @Composable
 fun ArtworkWall(imageId: Int) {
-    Surface(shadowElevation = 16.dp) {
+    Surface(
+        shadowElevation = 16.dp,
+        color = Color.White
+    ) {
         Image(
             painter = painterResource(imageId),
             contentDescription = null,
@@ -133,7 +134,7 @@ fun ArtworkDescription(imageDescription: Int, author: Int, year: Int) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .fillMaxHeight(fraction = 0.6f)
+            .fillMaxHeight(fraction = 0.7f)
             .padding(start = 36.dp, end = 36.dp, bottom = 24.dp, top = 64.dp)
             .background(Color.LightGray)
     ) {
