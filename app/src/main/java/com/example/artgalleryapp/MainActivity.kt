@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,6 +16,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -56,7 +58,11 @@ fun ArtGalleryApp() {
     ) {
         AppName()
         ArtworkWall(artObject.imageId)
-//        ArtworkDescription()
+        ArtworkDescription(
+            imageDescription = artObject.imageDescriptionId,
+            author = artObject.authorId,
+            year = artObject.year
+        )
 //        DisplayController()
     }
 }
@@ -90,6 +96,31 @@ fun ArtworkWall(imageId: Int) {
                 .fillMaxHeight(fraction = 0.6f)
                 .padding(24.dp),
             contentScale = ContentScale.Crop
+        )
+    }
+}
+
+@Composable
+fun ArtworkDescription(imageDescription: Int, author: Int, year: Int) {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight(fraction = 0.6f)
+            .padding(start = 36.dp, end = 36.dp, bottom = 24.dp, top = 64.dp)
+            .background(Color.LightGray)
+    ) {
+        Text(
+            text = stringResource(imageDescription),
+            fontSize = 24.sp,
+            modifier = Modifier
+                .padding(top = 8.dp, bottom = 8.dp, start = 8.dp)
+        )
+        Text(
+            text = "${stringResource(author)} ($year)",
+            fontSize = 16.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier
+                .padding(start = 8.dp)
         )
     }
 }
