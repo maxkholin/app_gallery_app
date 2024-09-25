@@ -39,7 +39,6 @@ import androidx.compose.ui.unit.sp
 import com.example.artgalleryapp.data.DataProvider
 import com.example.artgalleryapp.ui.theme.ArtGalleryAppTheme
 
-val artObjectsList = DataProvider.createListOfArtObjects()
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +56,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ArtGalleryApp() {
     var index by remember { mutableIntStateOf(0) }
+
+    val artObjectsList = remember { DataProvider.createListOfArtObjects() }
 
     val numberOfPictures = artObjectsList.size
 
