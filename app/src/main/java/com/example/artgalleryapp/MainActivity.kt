@@ -36,7 +36,6 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.artgalleryapp.data.ArtObject
 import com.example.artgalleryapp.data.DataProvider
 import com.example.artgalleryapp.ui.theme.ArtGalleryAppTheme
 
