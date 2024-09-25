@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Art Gallery App</string>
+    <string name="bear_description">Bear in Siberian forest</string>
+    <string name="daisy_description">Daisies at the foot of the Siberian mountains</string>
+    <string name="fog_description">Fog in Siberian forest</string>
+    <string name="moose_description">Moose in Siberian forest</string>
+    <string name="river_description">River in Siberia</string>
+    <string name="winter_description">Winter in Siberia</string>
+    <string name="author_Ivan">Ivan Ivanov</string>
+    <string name="author_John">John Doe</string>
+    <string name="author_Petr">Petr Sidorov</string>
+    <string name="previous_button">Previous</string>
+    <string name="next_button">Next</string>
 </resources>
