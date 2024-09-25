@@ -36,15 +36,18 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.artgalleryapp.data.ArtObject
 import com.example.artgalleryapp.data.DataProvider
 import com.example.artgalleryapp.ui.theme.ArtGalleryAppTheme
+
+val artObjectsList = DataProvider.createListOfArtObjects()
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ArtGalleryAppTheme {
+            ArtGalleryAppTheme(darkTheme = false) {
                 ArtGalleryApp()
             }
         }
@@ -56,7 +59,6 @@ class MainActivity : ComponentActivity() {
 fun ArtGalleryApp() {
     var index by remember { mutableIntStateOf(0) }
 
-    val artObjectsList = DataProvider.createListOfArtObjects()
     val numberOfPictures = artObjectsList.size
 
     val onPreviousButtonClick: () -> Unit = {
