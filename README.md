@@ -48,4 +48,6 @@ Art Gallery App — это приложение для Android, разработ
 
 Скриншоты
 
+![Example Gif](./images/art_gallery_app_example.gif)
+
 
