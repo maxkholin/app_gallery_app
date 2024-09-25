@@ -38,7 +38,7 @@ Art Gallery App — это приложение для Android, разработ
 
 **Клонируйте репозиторий:**
 
-- git clone git@github.com:maxkholin/app_gallery_app.git
+- git clone git@github.com:maxkholin/art_gallery_app.git
 
 **Откройте проект в Android Studio**
 
