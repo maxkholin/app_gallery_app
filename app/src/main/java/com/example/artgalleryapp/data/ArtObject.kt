@@ -8,7 +8,7 @@ import androidx.annotation.StringRes
  *
  * @property imageId id картинки
  * @property imageDescriptionId строковое id описания
- * @property authorId строковое id автора картинки (текст будет на английском)
+ * @property authorId строковое id автора картинки
  * @property year год создания картинки (всегда после 1989 года)
  */
 data class ArtObject(
